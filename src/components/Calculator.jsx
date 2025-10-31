@@ -80,27 +80,11 @@ const Calculator = () => {
 
   return (
     <div className="min-w-[320px] bg-black flex flex-col gap-4 p-4 rounded-2xl text-white">
-      <div
-        className="overflow-x-auto bg-[#141414] min-h-[100px]
-             flex items-end justify-end flex-col p-4 rounded-[10px]"
-      >
-        <div className={`${showResult ? resultClass : operationClass}`}>
-          {display || "0"}
-        </div>
-      </div>
 
-      <div className="grid grid-cols-[repeat(4,1fr)] gap-[0.3rem] mt-5">
-        {keys.map((item, index) => (
-          <Keys
-            label={item}
-            key={index}
-            keyClass={item === "=" && "="}
-            onButtonClick={handleButton}
-          />
-        ))}
-      </div>
 
-      <div className="bg-[#1c1c1c] mt-4 rounded-xl p-3 max-h-[200px] overflow-y-auto">
+
+<div className="bg-[#1c1c1c] mt-4 rounded-xl p-3 max-h-[200px] overflow-y-auto">
+  
         <div className="flex justify-between items-center mb-2">
           <h2 className="text-lg font-semibold text-gray-300">History</h2>
           {history.length > 0 && (
@@ -129,6 +113,29 @@ const Calculator = () => {
           </ul>
         )}
       </div>
+
+
+      <div
+        className="overflow-x-auto bg-[#141414] min-h-[100px]
+             flex items-end justify-end flex-col p-4 rounded-[10px]"
+      >
+        <div className={`${showResult ? resultClass : operationClass}`}>
+          {display || "0"}
+        </div>
+      </div>
+
+      <div className="grid grid-cols-[repeat(4,1fr)] gap-[0.3rem] mt-5">
+        {keys.map((item, index) => (
+          <Keys
+            label={item}
+            key={index}
+            keyClass={item === "=" && "="}
+            onButtonClick={handleButton}
+          />
+        ))}
+      </div>
+
+    
     </div>
   );
 };
